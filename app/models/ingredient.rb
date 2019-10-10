@@ -1,5 +1,7 @@
 class Ingredient < ApplicationRecord
 
+    validates :name, presence: true
+
     def self.create_and_assign(ingredients, recipe_id)
         ingredients.each do |ingredient|
             ingredient_record = self.find_or_create_by(name: ingredient)

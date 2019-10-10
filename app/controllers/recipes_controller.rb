@@ -7,12 +7,13 @@ class RecipesController < ApplicationController
         search_param = params[:search_query]
         db_results = Recipe.find_recipes_by_ingredient(search_param)
         #search api and make recipe entries
-        api_results = RestClient.get("https://api.edamam.com/search?q=#{search_param}&app_id=#{ENV[APP_ID]}&app_key=#{ENV[APP_KEY]}&to=50")
+        api_results = RestClient.get("https://api.edamam.com/search?q=#{search_param}&app_id=#{ENV['APP_ID']}&app_key=#{ENV['APP_KEY']}&to=50")
+        parsed = JSON.parse(api_results)
+        created_recipes_from_api = Recipe.make_recipes_from_results(parsed["hits"])
+        results_array = db_results + created_recipes_from_api
+        unique_array = results_array.uniq
 
-        get_api_search_recipes
-        # db_search_results = true
-        # api_search_results = true
-        
+        render json: RecipeSerializer.new(unique_array).to_serialized_json
     end
 
     #add recipe, ingredients, recipe_ingredients and save recipe to user_recipes
