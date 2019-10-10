@@ -13,7 +13,6 @@ class IngredientsController < ApplicationController
             render json: ingredient.errors.full_messages
         end
     end
- 
 
     private
 
