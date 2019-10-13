@@ -22,8 +22,8 @@ class RecipesController < ApplicationController
         recipe = Recipe.create(recipe_params[:recipe])
         if(recipe.valid?)
             Ingredient.create_and_assign(recipe_params[:ingredients], recipe.id)
-            UserRecipe.create(recipe_id: recipe.id, user_id: recipe_params[:user_id])
-            render json: RecipeSerializer.new(recipe).to_serialized_json
+            newUR = UserRecipe.create(recipe_id: recipe.id, user_id: recipe_params[:user_id])
+            render json: UserRecipeSerializer.new(newUR).to_serialized_json
         else
             render json: recipe.errors.full_messages
         end
