@@ -14,6 +14,7 @@ class Recipe < ApplicationRecord
     def self.find_recipes_by_ingredient(search_query)
         self.all.select do |recipe|
             matches = recipe.ingredients.select do |ingredient|
+                #puts ingredient.name, ingredient.name.downcase, search_query
                 ingredient.name.downcase.include?(search_query.downcase)
             end
             if(matches.size != 0)

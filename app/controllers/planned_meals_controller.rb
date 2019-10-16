@@ -14,7 +14,7 @@ class PlannedMealsController < ApplicationController
         end
     end
 
-    def destroy 
+    def destroy
         planned_meal = PlannedMeal.find(params[:id])
         planned_meal.destroy()
         render json: {message: "#{planned_meal.recipe.title} removed"}
