@@ -9,7 +9,7 @@ class UserRecipesController < ApplicationController
         user_recipe = UserRecipe.create(user_recipe_params)
         puts user_recipe_params
         if(user_recipe.valid?)
-            render json: user_recipe.to_json(except:[:created_at, :updated_at])
+            render json: UserRecipeSerializer.new(user_recipe).to_serialized_json
         else
             render json: user_recipe.errors.full_messages
         end
