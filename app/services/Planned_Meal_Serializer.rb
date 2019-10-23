@@ -6,8 +6,11 @@ class PlannedMealSerializer
     def to_serialized_json
         @planned_meals.to_json({
             include: {
-                recipe: {only: [:title, :id, :page_url]}
-            }, except: [:created_at, :updated_at]
+               recipe: 
+                {include: 
+                    {ingredients: {only:[:name]}}, 
+                except: [:created_at, :updated_at]}
+           }, except: [:created_at, :updated_at]
         })
     end
 end
