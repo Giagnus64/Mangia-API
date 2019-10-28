@@ -2,7 +2,7 @@ class User < ApplicationRecord
     has_many :user_recipes, dependent: :destroy
     has_many :recipes, through: :user_recipes
     
-    has_many :planned_meals
+    has_many :planned_meals, dependent: :destroy
 
     has_secure_password
 
