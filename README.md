@@ -1,16 +1,20 @@
-# Bedfellows
-A webapp that connects useres and allows them to manage their relationships with each other.  
+# Mangia
+A web application designed to help users plan and keep track of meals and recipes.  
 
 ## Features
 Users are able to plan meals based on the recipes that they keep track of. Users can submit their own recipes or select recipes from an API search or other user-submitted recipes. Once a user has bookmarked a recipe, they can assign it to a meal time on a specific day. 
 
-## Screenshots
-Include logo/demo screenshot etc.
+## Demo
+Live here: [Mangia](https://mangia-client.herokuapp.com/login)
+Demo video coming soon!
+
 
 ## Built with
  *Back-end*
 - [Ruby on Rails](https://rubyonrails.org) - Server Framework
 - [PostgreSQL](https://www.postgresql.org) - Database
+- [Firebase](https://firebase.google.com) -Image Storage
+- [Edamam Recipe API](https://developer.edamam.com) - Recipe Search API
 - Auth using [JWT](https://jwt.io) tokens and [bcrypt ] (https://rubygems.org/gems/bcrypt/versions/3.1.12) encryption
 - [Rest-Client](https://github.com/rest-client/rest-client) - HTTP request library
 
@@ -18,12 +22,19 @@ Include logo/demo screenshot etc.
 *Front-end*
 - [React](https://reactjs.org/docs/getting-started.html) - Front-end Framework
 - [React Redux](https://react-redux.js.org) - 
-- [Semantic UI](https://react.semantic-ui.com/) - CSS framework with [Sass] formatted custom CSS(https://sass-lang.com)
-- [semantic-ui-calendar-react](https://www.npmjs.com/package/semantic-ui-calendar-react) - 
+- [Bulma](https://bulma.io) - CSS framework with [Sass] formatted custom CSS(https://sass-lang.com)
+- [react-bulma-components - npm](https://www.npmjs.com/package/react-bulma-components/v/3.0.1-1)
+- [Font Awesome Icons](https://github.com/FortAwesome/react-fontawesome)
+- [date-fns - JavaScript date utility library](https://date-fns.org)
+- [react-day-picker - Flexible date picker component for React](https://react-day-picker.js.org)
+- [react-firebase-file-uploader - npm](https://www.npmjs.com/package/react-firebase-file-uploader)
+
 
 
 
 ## Installation
+WARNING: Api search & firebase image uploads will NOT work since API keys are stored locally 
+
 *Requirements*
  - [Node.js](https://nodejs.org/en/)
  - [Installing Ruby](https://www.ruby-lang.org/en/documentation/installation/)
